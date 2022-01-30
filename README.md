@@ -248,14 +248,15 @@ Selecting a model revolves around more than either accuracy or precision. No mod
 ### Points considered:
 * Balanced accuracy scores range from 51% to 92%. 
 * High precision and high recall mean we have a good and balanced model. None of our models are good and balanced.
-* High precision and low recall means we have a model that is not good in detection but accurate when it does. None our models have high precison scores. Precision scores range for 1% to 6%. None of the models are very precise.
-* Low precision and high recall means we have a model that has good detection capability but chances of false positives are high Recall scores range from 59% to 89%. Considering we are talking about credit risk, we need to look at further measures in consideration of these models.
+* High precision and low recall means we have a model that is not good in detection but accurate when it does. None of our models have high precison scores. Precision scores range for 1% to 6%. None of the models are very precise.
+* Low precision and high recall means we have a model that has good detection capability but chances of false positives are high. Recall scores range from 59% to 89%. Considering we are talking about credit risk, we need to look at further measures in consideration of these models.
 
 One idea I had, was that we could also determine what percentage of false positives (what false positive ratio) would be tolerable. False positive ratio = FP/FP+TN. Let's say we determine a false positive ratio of 25% is tolerable and
 then let's look at a model's helpfulness from that perspective in addition to it's other useful measures. Both the Balanced Random Forest Classifier model and the Easy Ensemble AdaBoost Clasifier model have false positive ratios below 25% so using those model could help us stay well below this target 25%. We may give up more loan candidates than our target though because these models are providing false positive ratios below the 25% range. (13%, 10%) 
 
-I would not recommend using Naive Random Oversampling with a logistic regression model mostly because it's higher false positive ratio.
+I would not recommend using Naive Random Oversampling with a logistic regression model mostly because of it's higher false positive ratio.
+
 Instead of picking one model, I think I would start out using 3 of the models in combination: SMOTE Oversampling with a logistic regression model, the Balanced Random Forest Classifier model, and the Easy Ensemble AdaBoost Clasifier model. I would gather more data (hoping to get more high risk samples to train with) and see if that would improve any of the models further by training and testing on a larger set of data. 
 
-### Training and testing scores check in
+### Training and testing scores check
 Looking at the training and testing scores, it is hard to say whether doing more training and testing would improve the models. None of the models are showing as overfit or underfit at this time. The Undersampling using ClusterCentroids with a logistic regression model did have a 44% testing score which isn't a good testing score compared to its 67% training score.
