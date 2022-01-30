@@ -172,11 +172,11 @@ The classification report is used to calculate these measures but it doesn't kno
 
 #### Naive Random Oversampling logistic regression classification report:
 
-![NRO balanced classification report image](/resources/NRO_balanced_classifiction_report_image.png)
+![NRO balanced classification report image](/resources/NRO_balanced_classification_report_image.png)
 
 #### SMOTE logistic regression classification report:
 
-![SMOTE classification report image](/resources/SMOTE_classification report_image.png)
+![SMOTE classification report image](/resources/SMOTE_classification_report_image.png)
 
 #### Undersampling logistic regression classification report:
 
@@ -188,7 +188,7 @@ The classification report is used to calculate these measures but it doesn't kno
 
 #### Balanced Random Forest Classifier classification report:
 
-![Balanced Random Forest Classifier classification report image](/resources/balanced_random_forest_classification_report_image.png)
+![Balanced Random Forest Classifier classification report image](/resources/balanced_random_forest_imbalanced_classification_report_image.png)
 
 #### Easy Ensemble AdaBoost Classifier classification report:
 
@@ -222,7 +222,7 @@ If the training score and the testing(validation) score are both low, the estima
 
 #### Balanced Random Forest Classifier training and testing scores:
 
-![Balanced Random Forest Classifier training and testing scores image](/resources/balanced_random_forest_training_testing_scorest_image.png)
+![Balanced Random Forest Classifier training and testing scores image](/resources/balanced_random_forest_training_testing_scores_image.png)
 
 #### Easy Ensemble AdaBoost Classifier training and testing scores:
 
