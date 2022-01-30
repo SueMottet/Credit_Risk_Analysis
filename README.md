@@ -197,7 +197,7 @@ The classification report is used to calculate these measures but it doesn't kno
 
 As part of the Balanced Random Forest Classier work feature ranking by feature importance was performed and a snapshot is shown here:
 
-![BRFC feature rank image](/resources/balanced_random_forest_features_sorted_desc_by feature_importance_image.png)
+![BRFC feature rank image](/resources/balanced_random_forest_feature_importance_image.png)
 
 ### Training and testing scores
 
