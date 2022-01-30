@@ -119,7 +119,6 @@ The best value is 1 and the worst value is 0 when adjusted=False. Default adjust
 
 ![Easy Ensemble AdaBoost Classifier balanced accuracy score image](/resources/easy_ensemble_adaboost_balanced_accuracy_score_image.png)
 
-
 ### Confusion matrix
 
 A confusion matrix compares the predicted values from a model against the actual values. The entries in the confusion matrix are the number of true positives (TP), true 
