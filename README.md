@@ -6,6 +6,7 @@ paradigm: Model → Fit (Train) → Predict
 Because credit risk is an unbalanced classification problem (good loans typically outnumber risky loans), there is a need to apply machine learning techniques to train and evaluate models that work with unbalanced classes.  
 
 ## Overview
+
 This data analysis builds and evaluates six machine learning models. It leverages both the imbalance-learn and skit-learn machine learning libraries.
 
 Pre-work was also performed to create the Python machine learning environment and to pre-process the data for machine learning: clean the data, encode the data using pandas get_dummies(), and scale the data.
@@ -27,6 +28,21 @@ Using these three algorithms the following steps are performed:
 5. Generate a confusion matrix
 6. Generate a classification report.
 
+#### Resampling Images
+
+##### Naive Random Oversampling counter results:
+
+![NRO counter image](/resources/NRO_counter_image.png)
+
+##### SMOTE Oversampling counter results:
+
+![SMOTE counter image](/resources/SMOTE_counter_image.png)
+
+##### Undersampling counter results:
+
+![Undersampling counter image](/resources/Undersampling_counter_image.png)
+
+
 ### Objective 2 - Use SMOTEENN algorithm to Predict Credit Risk
 
 For this objective, a combinational approach of both over and under sampling with the SMOTEENN algorithm is used with the intention of determining if the results from this combinational approach are better at predicting credit risk than the resampling algorithms used with Objective 1.
@@ -40,17 +56,21 @@ Using the SMOTEENN algorithm the following steps are again performed:
 5. Generate a confusion matrix
 6. Generate a classification report.
 
+Note: Counters weren't calculated as part of this objective.
+
 ### Objective 3 - Use Ensemble Classifiers to Predict Credit Risk
 
 For the third objective, two different ensemble classifiers are trained to predict credit risk, tested and then evaluated. 
 
-Using both algorithms the following steps are performed (note the difference in objective 3 for step 3):
+Using both of algorithms the following steps are performed (note the difference in objective 3 for step 3):
 1. Resample the dataset
 2. View the count of target classes
 3. Train the ensemble classifier
-4. Calculate the balanced accuracy score
+4. Calculate the accuracy score
 5. Generate a confusion matrix
 6. Generate a classification report.
+
+Note: Counters weren't calculated as part of this objective.
 
 ### Objective 4 - Summarize the analysis of the performance of all the machine learning models used 
 
@@ -58,24 +78,80 @@ This README.md is intended to fulfill Objective 4 and provide an overview, resul
 
 
 #### Project Resources: 
+
 * Python with pandas, numpy, pathlib, collections, sklearn and imblearn 
 
 ## Results:
 
-As part of this work, results are generated for each of the machine learning algorithms. These results are provided through a balanced accuracy score, a confusion matrix, and a classification report. 
+As part of this work, resampling is done in some cases and then results are generated for each of the machine learning algorithms. 
+
+These results are provided through a balanced accuracy score, a confusion matrix, and a classification report. 
 
 Testing and training scores are also generated to help understand whether the models are overfit or underfit.
 
 ### Balanced accuracy score
+
 The balanced accuracy score computes the balanced accuracy, which avoids inflated performance estimates on imbalanced datasets. It is the macro-average of recall scores per class or, equivalently, raw accuracy where each sample is weighted according to the inverse prevalence of its true class. Thus for balanced datasets, the score is equal to accuracy. The balanced accuracy is calculated in binary and multiclass classification problems to deal with imbalanced datasets. It is defined as the average of recall obtained on each class.
 
 The best value is 1 and the worst value is 0 when adjusted=False. Default adjusted=False.
 
+#### Naive Random Oversampling balanced accuracy score:
+
+![NRO balanced accuracy score image](/resources/NRO_balanced_accuracy_score_image.png)
+
+#### SMOTE balanced accuracy score:
+
+![SMOTE accuracy score image](/resources/SMOTE_balanced_accuracy_score_image.png)
+
+#### Undersampling balanced accuracy score:
+
+![Undersampling balanced accuracy score image](/resources/Undersampling_balanced_accuracy_score_image.png)
+
+#### SMOTEENN balanced accuracy score:
+
+![SMOTEEN balanced accuracy score image](/resources/SMOTEENN_balanced_accuracy_score_image.png)
+
+#### Balanced Random Forest Classifier balanced accuracy score:
+
+![Balanced Random Forest Classifier balanced accuracy score image](/resources/balanced_random_forest_balanced_accuracy_score_image.png)
+
+#### Easy Ensemble AdaBoost Classifier balanced accuracy score:
+
+![Easy Ensemble AdaBoost Classifier balanced accuracy score image](/resources/easy_ensemble_adaboost_balanced_accuracy_score_image.png)
+
+
 ### Confusion matrix
+
 A confusion matrix compares the predicted values from a model against the actual values. The entries in the confusion matrix are the number of true positives (TP), true 
 negatives (TN), false positives (FP), and false negatives (FN). 
 
-The confusion matrix allow the use of 4 important measure formulas on our models: Accuracy, precision, sensitivity, and F1.
+The confusion matrix allows the use of 4 important measure formulas on our models: accuracy, precision, sensitivity, and F1 scores.
+
+#### Naive Random Oversampling logistic regression confusion matrix:
+
+![NRO confusion matrix image](/resources/NRO_confusion_matrix_image.png)
+
+#### SMOTE logistic regression confusion matrix:
+
+![SMOTE confusion matrix image](/resources/SMOTE_confusion_matrix_image.png)
+
+#### Undersampling logistic regression confusion matrix:
+
+![Undersampling confusion matrix image](/resources/Undersampling_confusion_matrix_image.png)
+
+#### SMOTEENN logistic regression confusion matrix:
+
+![SMOTEENN classifiction report image](/resources/SMOTEENN_confusion_matrix_image.png)
+
+
+#### Balanced Random Forest Classifier confusion matrix:
+
+![Balanced Random Forest Classifier confusion matrix image](/resources/balanced_random_forest_confusion_matrix_image.png)
+
+#### Easy Ensemble AdaBoost Classifier confusion matrix:
+
+![Easy Ensemble AdaBoost Classifier confusion matrix image](/resources/easy_ensemble_adaboost_confusion_matrix_image.png)
+
 
 #### Model accuracy
 Accuracy is the percentage of correct predictions. Accuracy = TP + TN / (TP + TN + FP + FN). 
@@ -87,17 +163,76 @@ Precision is a measure of how reliable a positive classification is. Stated anot
 Sensitivity (or Recall) is the percentage of actual positive results that are predicted correctly. Sensitivity = TP / (TP + FN). It is sometimes called the True Positive Rate. Sensitivity is a measure of how many observations with a positive condition will be correctly classified.
 
 #### Model F1 score
+
 The F1 score (also called the harmonic mean) balances precision and sensitivity. F1 = 2(Precision * Sensitivity) / (Precision + Sensitivity)
 
 ### Classification report
+
 The classification report is used to calculate these measures but it doesn't know which class is positive and which is negative, this it gives the scores for both classes—"0" and "1"
 
+#### Naive Random Oversampling logistic regression classification report:
+
+![NRO balanced classification report image](/resources/NRO_balanced_classifiction_report_image.png)
+
+#### SMOTE logistic regression classification report:
+
+![SMOTE classification report image](/resources/SMOTE_classification report_image.png)
+
+#### Undersampling logistic regression classification report:
+
+![Undersampling classifiction report image](/resources/Undersampling_classification_report_image.png)
+
+#### SMOTEENN logistic regression classification report:
+
+![SMOTEENN classifiction report image](/resources/SMOTEENN_classification_report_image.png)
+
+#### Balanced Random Forest Classifier classification report:
+
+![Balanced Random Forest Classifier classification report image](/resources/balanced_random_forest_classification_report_image.png)
+
+#### Easy Ensemble AdaBoost Classifier classification report:
+
+![Easy Ensemble AdaBoost Classifier classification report image](/resources/easy_ensemble_adaboost_classification_report_image.png)
+
+### Feature ranking by feature importance
+
+As part of the Balanced Random Forest Classier work feature ranking by feature importance was performed and a snapshot is shown here:
+
+![BRFC feature rank image](/resources/balanced_random_forest_features_sorted_desc_by feature_importance_image.png)
+
 ### Training and testing scores
+
 If the training score and the testing(validation) score are both low, the estimator will be underfitting. If the training score is high and the testing (validation) score is low, the estimator is overfitting and otherwise it is working very well. A low training score and a high validation score is usually not possible. 
+
+#### Naive Random Oversampling logistic regression training and testing scores:
+
+![NRO training testing score image](/resources/NRO_training_testing_scores_image.png)
+
+#### SMOTE logistic regression training and testing scores:
+
+![SMOTE training testing score image](/resources/SMOTE_training_testing_scores_image.png)
+
+#### Undersampling logistic regression training and testing scores:
+
+![Undersampling training testing score image](/resources/Undersampling_training_testing_scores_image.png)
+
+#### SMOTEENN logistic regression training and testing scores:
+
+![SMOTEENN training and testing scores image](/resources/SMOTEENN_training_testing_scores_image.png)
+
+#### Balanced Random Forest Classifier training and testing scores:
+
+![Balanced Random Forest Classifier training and testing scores image](/resources/balanced_random_forest_training_testing_scorest_image.png)
+
+#### Easy Ensemble AdaBoost Classifier training and testing scores:
+
+![Easy Ensemble AdaBoost Classifier training and testing scores image](/resources/easy_ensemble_adaboost_training_testing_scores_image.png)
 
 #### Underfitting and Overfitting
 * Underfitting is a scenario in data science where a data model is unable to capture the relationship between the input and output variables accurately, generating a high error rate on both the training set and unseen data. A model this is underfitted means it is too simple with too few features and too little data to build an effective model. , An underfit model has high bias and low variance.
 * Overfitting is a modeling error in statistics that occurs when a function is too closely aligned to a limited set of data points. As a result, the model is useful in reference only to its initial data set, and not to any other data sets. A model that is overfitted may be too complicated, making it ineffective. An overfit model has low bias and high variance.
+
+### Key Results Call Outs:
 
 To help understand these results, this list describes the balanced accuracy score and the precision and recall scores for each of the six machine learning models:
 * Using Naive Random Oversampling with a logistic regression model resulted in a balanced accuracy score of 64%, a precision score of 1% , and a recall score of 62%. This model has an F1 score of 2%. This model has a false positive ratio of 56%.
@@ -111,7 +246,7 @@ To help understand these results, this list describes the balanced accuracy scor
 
 Selecting a model revolves around more than either accuracy or precision. No model is going to be 100% perfect and no matter which model selected there will be a borrower that will default.
 
-Points considered:
+### Points considered:
 * Balanced accuracy scores range from 51% to 92%. 
 * High precision and high recall mean we have a good and balanced model. None of our models are good and balanced.
 * High precision and low recall means we have a model that is not good in detection but accurate when it does. None our models have high precison scores. Precision scores range for 1% to 6%. None of the models are very precise.
